@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Management - Spy Agency Admin</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="js/daterangepicker.css" />
+    
+
+
+    <style>
+        /* Layout Styling */
+        body {
+            background-color: #1e1e2d;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            background-color: #2c2c3e;
+            height: 100vh;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: #bbb;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #3a3a4f;
+            color: #fff;
+        }
+
+        .top-bar {
+            background-color: #1e1e2d;
+            color: #17a2b8;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar h5 {
+            margin: 0;
+            display: inline;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .page-header {
+            color: #17a2b8;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #17a2b8;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #138496;
+        }
+
+        .table-container {
+            margin: 20px;
+        }
+
+        .table {
+            background-color: #2a2a3a;
+            color: #ddd;
+        }
+
+        .modal-content {
+            background-color: #2a2a3a;
+            color: #ddd;
+        }
+
+        .status-badge {
+            font-size: 0.85rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <h4 class="text-center">Spy Agency</h4>
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="agent.management.html" class="nav-link "><i class="fas fa-user-secret"></i>
+                    Agents</a>
+                <a href="missions.html" class="nav-link"><i class="fas fa-briefcase"></i> Missions</a>
+                <a href="reports.html" class="nav-link text-warning"><i class="fas fa-chart-line"></i> Reports</a>
+                <a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#logout" class="nav-link"><i class="fas fa-arrow-left"></i> Logout</a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10">
+                <!-- Top Bar -->
+                <div class="top-bar d-flex justify-content-between">
+                    <h5>Reports</h5>
+                    <span>Logged in as Admin</span>
+                </div>
+
+                <div class="container mt-5">
+                    <h2>Mission Reports</h2>
+
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+
+                            <input type="text" id="searchReports" class="form-control"
+                                placeholder="🔍 Search reports...">
+                        </div>
+                        <div class="col-md-3">
+                            <select id="reportStatusFilter" class="form-select">
+                                <option value="">Filter by Status</option>
+                                <option value="active">Active</option>
+                                <option value="completed">Completed</option>
+                                <option value="on-hold">On Hold</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="reportDateFilter" class="form-select">
+                                <option value="">Filter by Date</option>
+                                <option value="today">Today</option>
+                                <option value="last7days">Last 7 Days</option>
+                                <option value="last30days">Last 30 Days</option>
+                                <option value="thisMonth">This Month</option>
+                                <option value="lastMonth">Last Month</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Export buttons for generating reports -->
+                    <div class="export-buttons">
+                        <button class="btn btn-primary" onclick="exportReport('pdf')">Export as PDF</button>
+                        <button class="btn btn-secondary" onclick="exportReport('csv')">Export as CSV</button>
+                    </div>
+
+                    <!-- Reports Table -->
+                    <table class="table table-striped" id="reportsTable">
+                        <thead>
+                            <tr>
+                                <th>Report ID</th>
+                                <th>Mission Name</th>
+                                <th>Status</th>
+                                <th>Location</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RP001</td>
+                                <td>Operation Eagle Eye</td>
+                                <td>Active</td>
+                                <td>New York</td>
+                                <td>2024-10-30</td>
+                                <td>
+                                    <button class="btn btn-info" onclick="viewDetails('RP001')">View</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>RP002</td>
+                                <td>Operation Silent Thunder</td>
+                                <td>Completed</td>
+                                <td>Los Angeles</td>
+                                <td>2024-10-20</td>
+                                <td>
+                                    <!-- Button in Reports Table -->
+
+                                    <button class="btn btn-info" onclick="viewDetails('RP001')">View</button>
+
+
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- Add more report rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="charts-container row">
+                    <canvas id="missionSuccessRateChart" class="col-md-4"></canvas>
+                    <canvas id="missionStatusDistributionChart" class="col-md-4"></canvas>
+                    <canvas id="resourceAllocationChart" class="col-md-4"></canvas>
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Report Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Mission Objectives:</strong> <span id="missionObjectives"></span></p>
+                        <p><strong>Milestones & Outcomes:</strong> <span id="milestonesOutcomes"></span></p>
+                        <p><strong>Financial Data:</strong> <span id="financialData"></span></p>
+                        <p><strong>Team Members:</strong> <span id="teamMembers"></span></p>
+                        <p><strong>Timeline:</strong> <span id="timelineEvents"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/datepicker.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                paging: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search agents..."
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('searchReports');
+            const statusFilter = document.getElementById('reportStatusFilter');
+            const dateFilter = document.getElementById('reportDateFilter');
+            const reportsTable = document.getElementById('reportsTable').getElementsByTagName('tbody')[0];
+
+            // Filter function
+            function filterReports() {
+                const searchText = searchInput.value.toLowerCase();
+                const selectedStatus = statusFilter.value;
+                const selectedDateFilter = dateFilter.value;
+                const rows = reportsTable.getElementsByTagName('tr');
+                const today = new Date();
+
+                for (let i = 0; i < rows.length; i++) {
+                    const row = rows[i];
+                    const missionName = row.cells[1].textContent.toLowerCase();
+                    const missionStatus = row.cells[2].textContent.toLowerCase();
+                    const missionDate = new Date(row.cells[4].textContent);
+
+                    // Search filter
+                    const matchesSearch = missionName.includes(searchText);
+                    // Status filter
+                    const matchesStatus = selectedStatus === '' || missionStatus === selectedStatus;
+                    // Date filter
+                    let matchesDate = true;
+
+                    switch (selectedDateFilter) {
+                        case 'today':
+                            matchesDate = missionDate.toDateString() === today.toDateString();
+                            break;
+                        case 'last7days':
+                            matchesDate = (today - missionDate) / (1000 * 60 * 60 * 24) <= 7;
+                            break;
+                        case 'last30days':
+                            matchesDate = (today - missionDate) / (1000 * 60 * 60 * 24) <= 30;
+                            break;
+                        case 'thisMonth':
+                            matchesDate = missionDate.getMonth() === today.getMonth() &&
+                                missionDate.getFullYear() === today.getFullYear();
+                            break;
+                        case 'lastMonth':
+                            const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+                            matchesDate = missionDate.getMonth() === lastMonth.getMonth() &&
+                                missionDate.getFullYear() === lastMonth.getFullYear();
+                            break;
+                    }
+
+                    // Show or hide row based on filters
+                    if (matchesSearch && matchesStatus && matchesDate) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            }
+
+            // Event listeners for search and filter inputs
+            searchInput.addEventListener('keyup', filterReports);
+            statusFilter.addEventListener('change', filterReports);
+            dateFilter.addEventListener('change', filterReports);
+
+            // Function to export report
+            window.exportReport = function (format) {
+                alert(`Exporting reports as ${format.toUpperCase()}...`);
+                // Implement your export logic here
+            };
+        });
+        function confirmDelete(agentId) {
+            if (confirm("Are you sure you want to delete agent " + agentId + "?")) {
+                // Perform delete action here
+                alert("Agent " + agentId + " has been deleted.");
+            }
+        }
+
+
+    </script>
+
+    <script>
+        // Initialize Date Range Picker
+        $(document).ready(function () {
+            $('#customDateRange').daterangepicker({
+                opens: 'left'
+            }, function (start, end, label) {
+                const startDate = start.format('YYYY-MM-DD');
+                const endDate = end.format('YYYY-MM-DD');
+                filterReportsByDateRange(startDate, endDate);
+            });
+        });
+
+        function filterReportsByDateRange(startDate, endDate) {
+            const rows = reportsTable.getElementsByTagName('tr');
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const reportDate = new Date(row.cells[4].textContent);
+                const isWithinRange = reportDate >= new Date(startDate) && reportDate <= new Date(endDate);
+                row.style.display = isWithinRange ? '' : 'none';
+            }
+        }
+
+        // View Details function to populate modal with data
+        function viewDetails(reportId) {
+            // Fetch and populate data (hardcoded for illustration)
+            document.getElementById("missionObjectives").textContent = "Secure and extract information.";
+            document.getElementById("milestonesOutcomes").textContent = "Completed surveillance.";
+            document.getElementById("financialData").textContent = "$10,000 budget utilized.";
+            document.getElementById("teamMembers").textContent = "Agent 007, Analyst A.";
+            document.getElementById("timelineEvents").textContent = "2024-10-30: Mission initiated.";
+
+            $('#detailsModal').modal('show');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mission Success Rates Chart
+            const missionSuccessRateCtx = document.getElementById('missionSuccessRateChart').getContext('2d');
+            new Chart(missionSuccessRateCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Category 1', 'Category 2', 'Category 3'],
+                    datasets: [{
+                        label: 'Success Rate',
+                        data: [85, 70, 55],
+                        backgroundColor: ['#17a2b8', '#138496', '#1e1e2d']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: { display: true, text: 'Mission Success Rates by Category' }
+                }
+            });
+
+            // Mission Status Distribution Chart
+            const missionStatusCtx = document.getElementById('missionStatusDistributionChart').getContext('2d');
+            new Chart(missionStatusCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Active', 'Completed', 'On-Hold'],
+                    datasets: [{
+                        data: [30, 50, 20],
+                        backgroundColor: ['#17a2b8', '#28a745', '#ffc107']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: { display: true, text: 'Mission Status Distribution' }
+                }
+            });
+
+            // Resource Allocation Chart
+            const resourceAllocationCtx = document.getElementById('resourceAllocationChart').getContext('2d');
+            new Chart(resourceAllocationCtx, {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May'],
+                    datasets: [{
+                        label: 'Resources Allocated',
+                        data: [12000, 15000, 11000, 17000, 14000],
+                        borderColor: '#17a2b8',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: { display: true, text: 'Resource Allocation Over Time' }
+                }
+            });
+        });
+        function exportToExcel() {
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.table_to_sheet(document.getElementById('reportsTable'));
+            XLSX.utils.book_append_sheet(wb, ws, 'Reports');
+            XLSX.writeFile(wb, 'MissionReports.xlsx');
+        }
+
+        function exportToPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+            pdf.text("Mission Reports", 10, 10);
+            pdf.autoTable({ html: '#reportsTable' });
+            pdf.save('MissionReports.pdf');
+        }
+
+    </script>
+</body>
+
+</html>

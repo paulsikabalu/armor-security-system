@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missions - Spy Agency Admin</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <style>
+        /* Layout Styling */
+        body {
+            background-color: #1e1e2d;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            background-color: #2c2c3e;
+            height: 100vh;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: #bbb;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #3a3a4f;
+            color: #fff;
+        }
+
+        .top-bar {
+            background-color: #1e1e2d;
+            color: #17a2b8;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .table-container {
+            margin: 20px;
+        }
+
+        .modal-content {
+            background-color: #2a2a3a;
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <h4 class="text-center">Spy Agency</h4>
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="agent.management.html" class="nav-link"><i class="fas fa-user-secret"></i> Agents</a>
+                <a href="missions.html" class="nav-link text-warning"><i class="fas fa-briefcase"></i> Missions</a>
+                <a href="reports.html" class="nav-link"><i class="fas fa-chart-line"></i> Reports</a>
+                <a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#Logout" class="nav-link"><i class="fas fa-arrow-left"></i> Logout</a>
+            </div>
+
+            <div class="col-md-10">
+                <div class="top-bar d-flex justify-content-between">
+                    <h5>Missions Management</h5>
+                    <span>Logged in as Admin</span>
+                </div>
+
+                <div class="container">
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="searchInput"
+                                placeholder="🔍 Search missions...">
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" id="statusFilter">
+                                <option value="">Filter by Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Completed">Completed</option>
+                                <option value="On Hold">On Hold</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5 text-end">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMissionModal">
+                                <i class="fas fa-plus-circle"></i> Add New Mission
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container table-container">
+                    <table class="table table-bordered table-hover table-striped table-sm" id="missionsTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Location</th>
+                                <th>Assigned Agent</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MS001</td>
+                                <td>Operation Eagle Eye</td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>New York</td>
+                                <td>Agent Smith</td>
+                                <td>
+                                    <button class="btn btn-info" data-bs-toggle="modal"
+                                        data-bs-target="#viewMissionModal">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#editMissionModal">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="btn btn-danger" onclick="confirmDelete('MS001')">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>MS002</td>
+                                <td>Operation Silent Night</td>
+                                <td><span class="badge bg-warning">On Hold</span></td>
+                                <td>London</td>
+                                <td>Agent Jane</td>
+                                <td>
+                                    <button class="btn btn-info" data-bs-toggle="modal"
+                                        data-bs-target="#viewMissionModal">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#editMissionModal">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="btn btn-danger" onclick="confirmDelete('MS002')">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>MS003</td>
+                                <td>Operation Desert Storm</td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>Dubai</td>
+                                <td>Agent David</td>
+                                <td>
+                                    <button class="btn btn-info" data-bs-toggle="modal"
+                                        data-bs-target="#viewMissionModal">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#editMissionModal">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="btn btn-danger" onclick="confirmDelete('MS003')">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Add more missions as needed -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Add Mission Modal -->
+                <div class="modal fade" id="addMissionModal" tabindex="-1" aria-labelledby="addMissionModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addMissionModalLabel">Add New Mission</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="missionName" class="form-label">Mission Name</label>
+                                        <input type="text" class="form-control" id="missionName" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="missionStatus" class="form-label">Status</label>
+                                        <select class="form-select" id="missionStatus">
+                                            <option>Active</option>
+                                            <option>Completed</option>
+                                            <option>On Hold</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="missionLocation" class="form-label">Location</label>
+                                        <input type="text" class="form-control" id="missionLocation" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="assignedAgent" class="form-label">Assigned Agent</label>
+                                        <input type="text" class="form-control" id="assignedAgent" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add Mission</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View Mission Modal -->
+                <div class="modal fade" id="viewMissionModal" tabindex="-1" aria-labelledby="viewMissionModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="viewMissionModalLabel">Mission Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Mission details will be displayed here -->
+                                <p><strong>ID:</strong> MS001</p>
+                                <p><strong>Name:</strong> Operation Eagle Eye</p>
+                                <p><strong>Status:</strong> Active</p>
+                                <p><strong>Location:</strong> New York</p>
+                                <p><strong>Assigned Agent:</strong> Agent Smith</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Mission Modal -->
+                <div class="modal fade" id="editMissionModal" tabindex="-1" aria-labelledby="editMissionModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editMissionModalLabel">Edit Mission</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="editMissionName" class="form-label">Mission Name</label>
+                                        <input type="text" class="form-control" id="editMissionName"
+                                            value="Operation Eagle Eye" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editMissionStatus" class="form-label">Status</label>
+                                        <select class="form-select" id="editMissionStatus">
+                                            <option>Active</option>
+                                            <option>Completed</option>
+                                            <option>On Hold</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editMissionLocation" class="form-label">Location</label>
+                                        <input type="text" class="form-control" id="editMissionLocation"
+                                            value="New York" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editAssignedAgent" class="form-label">Assigned Agent</label>
+                                        <input type="text" class="form-control" id="editAssignedAgent"
+                                            value="Agent Smith" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Initialize DataTable
+            var table = $('#missionsTable').DataTable();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const searchInput = document.getElementById('searchInput');
+                const statusFilter = document.getElementById('statusFilter');
+                const missionsTable = document.getElementById('missionsTable').getElementsByTagName('tbody')[0];
+
+                // Filter function
+                function filterMissions() {
+                    const searchText = searchInput.value.toLowerCase();
+                    const selectedStatus = statusFilter.value;
+                    const rows = missionsTable.getElementsByTagName('tr');
+
+                    for (let i = 0; i < rows.length; i++) {
+                        const row = rows[i];
+                        const missionName = row.cells[1].textContent.toLowerCase();
+                        const missionStatus = row.cells[2].textContent;
+
+                        // Check if the row matches search text
+                        const matchesSearch = missionName.includes(searchText);
+                        // Check if the row matches selected status
+                        const matchesStatus = selectedStatus === '' || missionStatus === selectedStatus;
+
+                        // Show or hide the row based on the filters
+                        if (matchesSearch && matchesStatus) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    }
+                }
+
+                // Event listeners for search and filter inputs
+                searchInput.addEventListener('keyup', filterMissions);
+                statusFilter.addEventListener('change', filterMissions);
+            });
+
+            // Confirm Delete Action
+            window.confirmDelete = function (missionId) {
+                if (confirm(`Are you sure you want to delete mission with ID ${missionId}?`)) {
+                    // Implement delete logic here
+                    alert(`Mission ${missionId} deleted.`);
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>

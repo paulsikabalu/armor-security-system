@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Agency - Secure Access Portal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.5.15.4.min.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/spy.png">
+    <link rel="stylesheet" href="css/armor.css">
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="bg-dark text-white">
+        <div class="container d-flex justify-content-between py-2">
+            <div class="header-right">
+                <a href="staff.login.html">Agent Login</a>
+                <a href="spy.register.html">Register Access</a>
+                <a href="staff.login.html">Staff Portal</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Middle Header -->
+    <header class="bg-dark">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <div class="logo">
+                <i class="fa fa-user-secret" style="font-size: 100px;" aria-hidden="true"></i>
+            </div>
+
+            <div class="site-title">
+                <h1 class="text-neon fw-bold">Armar Guard Security Access Portal</h1>
+                <p class="text-light text-lights">Top-Secret Intelligence - Authorized Personnel Only</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <!-- Navbar Brand (can be a logo or agency name) -->
+            <a class="navbar-brand" href="#">
+                <img src="images/operation_alpha.jpg" alt="Spy Agency" style="width: 30px; margin-right: 8px;">
+                Armar Guard Security
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+    
+                    <!-- Mission Management Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mission Management">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-clipboard-list"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Mission Briefing</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Mission Logs</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Mission Status</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Surveillance Tools -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Surveillance Tools">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-video"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Camera Feed</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Tracking Devices</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Surveillance Analysis</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Cryptography Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cryptography">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-lock"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Encryption Keys</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Secure Messaging</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Decryptor</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Resource Allocation Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Resource Allocation">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-cogs"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Equipment Inventory</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Vehicle Tracking</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Agent Resource Allocation</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Field Agent Support Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Field Agent Support">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-user-shield"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Agent Check-in</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Emergency Evacuation Plans</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Agent Medical Info</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Intel Analysis Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Intel Analysis">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Data Encryption</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Analysis Tools</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Reports</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Training & Development Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Training & Development">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Training Modules</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Agent Performance</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Certifications</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Communication Center Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Communication Center">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-comments"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Secure Chat</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Voice Communication</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Incident Reporting</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Legal & Compliance Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Legal & Compliance">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-gavel"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Case Files</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Surveillance Warrants</a></li>
+                            <li><a class="dropdown-item text-light" href="#">International Law Resources</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Cybersecurity Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cybersecurity">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-shield-alt"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Firewall Management</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Malware Detection</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Data Backup</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Emergency Response Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Emergency Response">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Emergency Protocols</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Crisis Communication</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Evacuation Routes</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Intelligence Gathering Toolbox -->
+                    <li class="nav-item dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Intelligence Gathering">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Field Reports</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Intel Database</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Source Verification</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <section class="col-md-3 sidebar">
+
+                <div id="accordion-container">
+                    <!-- This will be dynamically populated by JS -->
+
+                </div>
+                <h5 class="accordion-header">Missions</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Current Operations</a></li>
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="#">Statistics</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Resources</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="#">Field Reports</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Main Section -->
+            <section class="col-md-9">
+                <!-- Main content goes here -->
+                <p class="text-center">Welcome to the Secure Access Portal. Unauthorized access is prohibited.</p>
+            </section>
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Toggle the accordion content on header click
+            $('.accordion-header').click(function () {
+                $(this).next('.accordion-content').slideToggle();
+            });
+
+            // JavaScript to check login status
+            fetch('controller/is_login.php')
+                .then(response => {
+                    // Check if response is successful (status code 200)
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const accordionContainer = document.getElementById('accordion-container');
+
+                    if (data.is_logged_in) {
+                        // Display Agent Profile when logged in
+                        accordionContainer.innerHTML = `
+                <div class="accordion-item">
+                    <h5 class="accordion-header">Agent Profile</h5>
+                    <div class="accordion-body">
+                        <div class="profile-container">
+                            <!-- Profile Picture -->
+                            
+                            <img src="controller/${data.profile_picture}" alt="Profile Picture" class="profile-picture">
+                            <p>${data.message}<br>Last login: <strong>${data.last_login}</strong></p>
+                        </div>
+                        <ul>
+                            <li><a href="profile.html?id=${data.agent_id}">Edit Profile</a></li>
+                            <li><a href="logout.php">Log Out</a></li> <!-- Assuming logout.php handles logout -->
+                        </ul>
+                    </div>
+                </div>
+            `;
+                    } else {
+                        // Display Login and Registration options when not logged in
+                        accordionContainer.innerHTML = `
+                <div class="accordion-item">
+                    <h5 class="accordion-header">Login</h5>
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="staff.login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="support.html">Support</a></li>
+                            <li><a href="secure-message.html">Secure Message</a></li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching login status:', error);
+                    alert('There was an issue fetching your login status. Please try again later.');
+                });
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zambia Agriculture Research Institute - MIS Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <style>
+        /* Login page styles */
+        body {
+            background-color: #e8fde9; /* Light green background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .login-container {
+            max-width: 400px;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .btn-login {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: bold;
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-login:hover {
+            background-color: #0056b3;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .footer-links {
+            margin-top: 1.5rem;
+        }
+        .footer-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login to ZARI MIS</h2>
+        <form action="login.php" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-login">Login</button>
+        </form>
+        <div class="text-center footer-links">
+            <a href="forgotpassword.html">Forgot Password?</a> | <a href="register.html">Register</a>
+        </div>
+    </div>
+
+</body>
+</html>

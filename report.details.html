@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Agency - Secure Access Portal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.5.15.4.min.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <style>
+        /* Global Styles */
+        * {
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            color: #e5e5e5;
+        }
+
+        body {
+            background-color: #1c1f24;
+            color: #e5e5e5;
+          
+        }
+
+        /* Header */
+        .header-right a {
+            color: #0f0;
+            border: 1px solid #0f0;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .header-right a:hover {
+            background-color: #0f0;
+            color: #000;
+        }
+
+        /* Spy Agency Logo */
+        .logo img {
+            height: 60px;
+            opacity: 0.8;
+            filter: grayscale(1);
+            transition: all 0.3s ease;
+        }
+
+        .logo img:hover {
+            filter: none;
+            opacity: 1;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #272b30;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Accordion */
+        .accordion-header {
+            background-color: #333;
+            color: #0f0;
+            padding: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            border-bottom: 1px solid #444;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #444;
+        }
+
+        .accordion-content {
+        display: block; /* Shows content by default */
+        padding: 12px;
+        background-color: #222;
+        border-bottom: 1px solid #333;
+        color: #bbb;
+    }
+
+        /* Main Navigation */
+        .navbar-dark .navbar-nav .nav-link {
+            color: #e5e5e5;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #0f0;
+        }
+
+        /* Links */
+        a {
+            color: #0f0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #8f8;
+        }
+
+        /* Hover Glow */
+        .header-right a,
+        .accordion-header,
+        .navbar-dark .navbar-nav .nav-link {
+            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .text-lights {
+            animation: blink 3s infinite;
+            /* Blinking every second */
+            color: #ff4d4d;
+            /* Light red color for warning */
+            font-weight: bold;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        h1, h5 {
+            color: #0f0;
+        }
+
+        .report-details {
+            background-color: #272b30;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .section-title {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #8f8;
+        }
+
+        .btn-back {
+            background-color: #0f0;
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #8f8;
+            color: #222;
+        }
+
+        .btn-view {
+            background-color: #0f0;
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view:hover {
+            background-color: #8f8;
+            color: #222;
+        }
+
+        .back-link {
+            color: #0f0;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+            color: #8f8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="bg-dark text-white">
+        <div class="container d-flex justify-content-between py-2">
+            <div class="header-right">
+                <a href="staff.login.html">Agent Login</a>
+                <a href="register.html">Register Access</a>
+                <a href="staff.login.html">Staff Portal</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Middle Header -->
+    <header class="bg-dark">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <div class="logo">
+                <img src="images/spy.png" alt="Spy Agency Logo">
+            </div>
+            <div class="site-title">
+                <h1 class="text-neon fw-bold">Armar Guard Security Access Portal</h1>
+                <p class="text-light text-lights">Top-Secret Intelligence - Authorized Personnel Only</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Operations</a>
+                        <div class="dropdown-menu bg-dark border-0 shadow">
+                            <a class="dropdown-item text-light" href="#">Field Ops</a>
+                            <a class="dropdown-item text-light" href="#">Recon</a>
+                            <a class="dropdown-item text-light" href="#">Logistics</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Intel Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <section class="col-md-3 sidebar">
+                <h5 class="accordion-header">Agent Profile</h5>
+                <div class="accordion-content">
+                    <p>Logged in as Agent Zulu<br>Last login: <strong>28/10/2024 - 07:23</strong></p>
+                    <ul>
+                        <li><a href="#">Edit Profile</a></li>
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Missions</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Current Operations</a></li>
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="#">Statistics</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Resources</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="#">Field Reports</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Main Section -->
+            <section class="col-md-9">
+                <!-- Main content goes here -->
+                <div class="container">
+                    <header class="mb-4">
+                        <a href="reports.html" class="btn-back">&larr; Back to Reports</a>
+                        <h1 class="text-center">Mission Report Details</h1>
+                        <p class="text-center">Detailed overview of mission findings and analysis.</p>
+                    </header>
+            
+                    <div class="report-details">
+                        <h5>Operation Alpha - Intelligence Gathering</h5>
+                        <p class="report-date"><strong>Report Date:</strong> October 25, 2024</p>
+                        <p><strong>Location:</strong> Urban Zone - District 12</p>
+            
+                        <h5 class="section-title">Objectives</h5>
+                        <p>To gather intelligence on high-value targets operating in the city. The focus was to monitor the targets' movements, identify their associates, and capture any sensitive communications.</p>
+            
+                        <h5 class="section-title">Summary of Actions</h5>
+                        <p>Agents conducted surveillance from multiple locations, utilizing both on-site observation and remote monitoring tools. The operation involved rotating shifts and the use of covert equipment to capture audio and video feeds.</p>
+            
+                        <h5 class="section-title">Findings</h5>
+                        <ul>
+                            <li>Target Alpha was observed meeting with suspected accomplices at designated intervals, confirming patterns in their movements.</li>
+                            <li>Conversations intercepted reveal planned activities in neighboring sectors, potentially indicating future operations.</li>
+                            <li>Target's vehicle was traced to multiple safe houses within the area, suggesting a network of operational bases.</li>
+                        </ul>
+            
+                        <h5 class="section-title">Challenges</h5>
+                        <p>Agents encountered signal interference likely caused by enemy counter-surveillance devices. Adjustments were made to avoid detection, but this slowed data collection.</p>
+            
+                        <h5 class="section-title">Conclusion</h5>
+                        <p>This mission successfully established a preliminary intelligence profile on the targets and provided actionable insights for future operations. Surveillance measures are recommended to continue until further patterns are identified.</p>
+            
+                        <h5 class="section-title">Recommendations</h5>
+                        <ul>
+                            <li>Deploy additional surveillance units in high-traffic areas to monitor target's movements.</li>
+                            <li>Increase encryption on communications to prevent interception by counter-surveillance teams.</li>
+                            <li>Consider coordination with local assets to gather further ground-level insights.</li>
+                        </ul>
+                    </div>
+                </div>
+            
+            </section>
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Toggle the accordion content on header click
+            $('.accordion-header').click(function () {
+                // Toggle the next content section
+                $(this).next('.accordion-content').slideToggle();
+            });
+        });
+    </script>
+</body>
+
+</html>

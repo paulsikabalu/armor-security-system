@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Agency - Secure Access Portal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.5.15.4.min.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <link rel="stylesheet" href="css/security.css">
+    
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="bg-dark text-white">
+        <div class="container d-flex justify-content-between py-2">
+            <div class="header-right">
+                <a href="staff.login.html">Agent Login</a>
+                <a href="register.html">Register Access</a>
+                <a href="staff.login.html">Staff Portal</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Middle Header -->
+    <header class="bg-dark">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <div class="logo">
+                <img src="images/spy.png" alt="Spy Agency Logo">
+            </div>
+            <div class="site-title">
+                <h1 class="text-neon fw-bold">Armar Guard Security Access Portal</h1>
+                <p class="text-light text-lights">Top-Secret Intelligence - Authorized Personnel Only</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Operations</a>
+                        <div class="dropdown-menu bg-dark border-0 shadow">
+                            <a class="dropdown-item text-light" href="#">Field Ops</a>
+                            <a class="dropdown-item text-light" href="#">Recon</a>
+                            <a class="dropdown-item text-light" href="#">Logistics</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Intel Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <section class="col-md-3 sidebar">
+                <h5 class="accordion-header">Agent Profile</h5>
+                <div class="accordion-content">
+                    <p>Logged in as Agent Zulu<br>Last login: <strong>28/10/2024 - 07:23</strong></p>
+                    <ul>
+                        <li><a href="#">Edit Profile</a></li>
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Missions</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Current Operations</a></li>
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="statistics.html">Statistics</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Resources</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="field_reports.html">Field Reports</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Main Section -->
+            <section class="col-md-9">
+                <!-- Main content goes here -->
+                <div class="container">
+                    <header class="mb-4">
+                        <a href="dashboard.html" class="back-link">&larr; Back to Dashboard</a>
+                        <h1 class="text-center">Current Operations</h1>
+                        <p class="text-center">All ongoing missions and operations.</p>
+                    </header>
+            
+                    <!-- Operation 1 -->
+                    <div class="operation-card">
+                        <img src="images/operation_alpha.jpg" alt="Operation Alpha Image">
+                        <h5>Operation Alpha</h5>
+                        <p><span class="status">Status: Active</span></p>
+                        <p>Operation Alpha is focused on gathering intelligence on high-priority targets in urban environments. Agents are required to blend in and avoid detection while obtaining crucial information for ongoing investigations.</p>
+                        <a href="operation_details.html" class="btn-view">View Details</a>
+                    </div>
+            
+                    <!-- Operation 2 -->
+                    <div class="operation-card">
+                        <img src="images/operation_bravo.jpg" alt="Operation Bravo Image">
+                        <h5>Operation Bravo</h5>
+                        <p><span class="status">Status: In Progress</span></p>
+                        <p>This operation is concentrated in remote locations, where agents are setting up surveillance systems to monitor enemy movements. Operation Bravo requires strategic placement of resources to ensure mission success.</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+            
+                    <!-- Operation 3 -->
+                    <div class="operation-card">
+                        <img src="images/operation_charlie.jpg" alt="Operation Charlie Image">
+                        <h5>Operation Charlie</h5>
+                        <p><span class="status">Status: High Alert</span></p>
+                        <p>Operation Charlie involves close contact with informants to uncover hidden networks. This high-stakes mission requires agents to proceed with caution and secure any retrieved intelligence immediately.</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+            
+                </div>
+            
+            </section>
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            // Toggle the accordion content on header click
+            $('.accordion-header').click(function () {
+                // Toggle the next content section
+                $(this).next('.accordion-content').slideToggle();
+            });
+        });
+    </script>
+</body>
+
+</html>

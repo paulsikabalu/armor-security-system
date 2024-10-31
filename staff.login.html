@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency Access - Secure Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            /* Very dark background */
+            color: #d0d0d0;
+            /* Light gray text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Login Container */
+        .login-container {
+            background-color: #1c1c1c;
+            /* Dark card background */
+            padding: 2rem;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Overlay */
+        .overlay {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: rgba(0, 255, 0, 0.05);
+            /* Green overlay */
+            transform: rotate(15deg);
+            animation: scan 4s infinite;
+        }
+
+        /* Overlay Animation */
+        @keyframes scan {
+            0% {
+                left: -100%;
+            }
+
+            50% {
+                left: 0;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Login Heading */
+        .login-container h2 {
+            color: #00ff00;
+            /* Green text */
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Controls */
+        .form-control {
+            background-color: #222;
+            /* Input background */
+            border: none;
+            color: #ddd;
+            /* Text color */
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* Submit Button */
+        .btn-login {
+            background-color: #00ff00;
+            color: #0f0f0f;
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            background-color: #00cc00;
+        }
+
+        /* Subtle Footer Links */
+        .footer-links {
+            margin-top: 1.5rem;
+            font-size: 0.85em;
+        }
+
+        .footer-links a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- Overlay for the scanning effect -->
+        <div class="overlay"></div>
+        <h2>Secure Agency Access</h2>
+        <p>Enter your credentials to access restricted areas.</p>
+        <form action="controller//secure_login.php" method="POST">
+            <input type="text" id="username" name="username" class="form-control" placeholder="Agent ID" required>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Access Code"
+                required>
+            <button type="submit" class="btn-login">Authenticate</button>
+        </form>
+        <div class="footer-links">
+            <a href="forgot_access.html">Forgot Access Code?</a> | <a href="spy.register.html">Register Agent</a>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Management - Spy Agency Admin</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <style>
+        /* Layout Styling */
+        body {
+            background-color: #1e1e2d;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            background-color: #2c2c3e;
+            height: 100vh;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: #bbb;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #3a3a4f;
+            color: #fff;
+        }
+
+        .top-bar {
+            background-color: #1e1e2d;
+            color: #17a2b8;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar h5 {
+            margin: 0;
+            display: inline;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .page-header {
+            color: #17a2b8;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #17a2b8;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #138496;
+        }
+
+        .table-container {
+            margin: 20px;
+        }
+
+        .table {
+            background-color: #2a2a3a;
+            color: #ddd;
+        }
+
+        .modal-content {
+            background-color: #2a2a3a;
+            color: #ddd;
+        }
+
+        .status-badge {
+            font-size: 0.85rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <h4 class="text-center">Spy Agency</h4>
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="agent.management.html" class="nav-link text-warning"><i class="fas fa-user-secret"></i> Agents</a>
+                <a href="missions.html" class="nav-link"><i class="fas fa-briefcase"></i> Missions</a>
+                <a href="reports.html" class="nav-link"><i class="fas fa-chart-line"></i> Reports</a>
+                <a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#logout" class="nav-link"><i class="fas fa-arrow-left"></i> Logout</a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10">
+                <!-- Top Bar -->
+                <div class="top-bar d-flex justify-content-between">
+                    <h5>Agent Management</h5>
+                    <span>Logged in as Admin</span>
+                </div>
+
+                <!-- Page Header and Controls -->
+                <div class="container">
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="🔍 Search agents...">
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select">
+                                <option value="">Filter by Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="on-leave">On Leave</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5 text-end">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAgentModal">
+                                <i class="fas fa-user-plus"></i> Add New Agent
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Table -->
+                <div class="container table-container">
+                    <table class="table table-bordered table-hover table-striped table-sm">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Location</th>
+                                <th>Last Active</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AG001</td>
+                                <td>Agent Smith</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>New York</td>
+                                <td>Today</td>
+                                <td>
+                                    <button class="btn btn-info btn-action text-white" data-bs-toggle="modal"
+                                        data-bs-target="#viewAgentModal">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-warning btn-action" data-bs-toggle="modal"
+                                        data-bs-target="#editAgentModal">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="btn btn-danger btn-action" onclick="confirmDelete('AG001')">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Additional rows go here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modals (Add, View, Edit) - Include your modals here -->
+
+                <!-- Add Agent Modal -->
+                <div class="modal fade" id="addAgentModal" tabindex="-1" aria-labelledby="addAgentModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addAgentModalLabel">Add New Agent</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="agentName" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="agentName" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="agentStatus" class="form-label">Status</label>
+                                        <select class="form-select" id="agentStatus">
+                                            <option>Active</option>
+                                            <option>Inactive</option>
+                                            <option>On Leave</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="agentLocation" class="form-label">Location</label>
+                                        <input type="text" class="form-control" id="agentLocation" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add Agent</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View Agent Modal -->
+                <div class="modal fade" id="viewAgentModal" tabindex="-1" aria-labelledby="viewAgentModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="viewAgentModalLabel">Agent Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>ID:</strong> AG001</p>
+                                <p><strong>Name:</strong> Agent Smith</p>
+                                <p><strong>Status:</strong> Active</p>
+                                <p><strong>Location:</strong> New York</p>
+                                <p><strong>Last Active:</strong> Today</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Agent Modal -->
+                <div class="modal fade" id="editAgentModal" tabindex="-1" aria-labelledby="editAgentModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editAgentModalLabel">Edit Agent</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="editAgentName" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="editAgentName" value="Agent Smith"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editAgentStatus" class="form-label">Status</label>
+                                        <select class="form-select" id="editAgentStatus">
+                                            <option>Active</option>
+                                            <option>Inactive</option>
+                                            <option>On Leave</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editAgentLocation" class="form-label">Location</label>
+                                        <input type="text" class="form-control" id="editAgentLocation" value="New York"
+                                            required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                paging: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search agents..."
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function confirmDelete(agentId) {
+            if (confirm("Are you sure you want to delete agent " + agentId + "?")) {
+                // Perform delete action here
+                alert("Agent " + agentId + " has been deleted.");
+            }
+        }
+    </script>
+</body>
+
+</html>

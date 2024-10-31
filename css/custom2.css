@@ -1,0 +1,265 @@
+/* Navbar base styling */
+:root {
+    --primary-green: #3a5f0b;
+    --accent-brown: #8B5A2B;
+    --gold-yellow: #FFB300;
+    --accent-red: #D32F2F;
+    --neutral-white: #F8F9FA;
+    --neutral-gray: #E0E0E0;
+    --secondary-blue: #1E88E5;
+}
+
+header, .navbar {
+    background-color: var(--primary-green);
+    color: var(--neutral-white);
+}
+
+.btn-primary {
+    background-color: var(--gold-yellow);
+    color: var(--neutral-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-red);
+}
+
+:root {
+    --primary-green: #3a5f0b;
+    --accent-brown: #8B5A2B;
+    /* other variables */
+}
+
+body {
+    background-color: var(--neutral-white);
+    color: var(--accent-brown);
+}
+
+.site-title {
+    position: relative; /* Keep this for the slant effect */
+    padding: 20px;
+}
+
+.site-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(40deg, #3a5f0b, #8B5A2B);
+    transform: skewY(-10deg);
+    z-index: -1; /* Send behind the text */
+}
+
+
+.navbar-nav .dropdown-menu {
+    display: none; /* Hide by default for hover effect */
+    position: fixed; /* Fixed positioning for full viewport width */
+    top: 100%; /* Aligns directly below the navbar */
+    left: 0;
+    width: 100vh; /* Covers the full viewport width */
+    
+    padding: 20px;
+    border: none;
+    border-radius: 0;
+    background-color: #f8f9fa;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for separation */
+}
+
+/* Mega Menu Columns */
+.navbar-nav .dropdown-menu .row {
+    max-width: 1200px; /* Restrict content width for readability on large screens */
+    width: 90vh; /* Aligns columns within the full-width menu */
+    margin: auto; /* Centers the content within the menu */
+    flex-wrap: nowrap;
+}
+
+/* Mega Menu Headings */
+.navbar-nav .dropdown-menu h6 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #004085;
+    margin-bottom: 10px;
+}
+
+/* Mega Menu Links */
+.navbar-nav .dropdown-menu .dropdown-item {
+    font-size: 0.9rem;
+    color: #555;
+    padding: 5px 0;
+}
+
+/* Hover effect for links */
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    color: #004085;
+    text-decoration: underline;
+}
+
+/* Show dropdown on hover */
+.nav-item:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease; /* Smooth fade-in */
+}
+
+/* Dropdown fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.site-title {
+    position: relative; /* Position relative for pseudo-element */
+    padding: 20px; /* Add padding for spacing */
+    color: white; /* Change text color for contrast */
+    overflow: hidden; /* Hide overflow for the slant */
+}
+
+/* Create the slanted background */
+.site-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(40deg, #3a5f0b, #8B5A2B); /* Adjust colors as needed */
+    transform: skewY(-10deg); /* Create the slant effect */
+    transform-origin: top left; /* Set the transform origin */
+    z-index: -1; /* Send behind the text */
+}
+
+ /* Theme colors */
+ :root {
+    --dark-orange: #b85c1e;
+    --dark-green: #2b7a0b;
+    --white: #ffffff;
+    --light-green: #cce5cc;
+}
+
+/* Header and Footer */
+.bg-dark-orange {
+    background-color: var(--dark-orange) !important;
+}
+
+.bg-dark-green {
+    background-color: var(--dark-green) !important;
+}
+
+.text-dark-orange {
+    color: var(--dark-orange) !important;
+}
+
+.text-dark-green {
+    color: var(--dark-green) !important;
+}
+
+/* Customize Buttons */
+.btn-primary {
+    background-color: var(--dark-orange);
+    border-color: var(--dark-orange);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--dark-orange), 10%);
+}
+
+/* Card and Section Colors */
+.card {
+    border-color: var(--dark-green);
+}
+
+.card .card-title {
+    color: var(--dark-orange);
+}
+
+.bg-light-green {
+    background-color: var(--light-green);
+}
+
+/* Navbar */
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--light-green);
+}
+
+.navbar-dark .navbar-nav .dropdown-menu {
+    background-color: var(--dark-orange);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-green);
+}
+
+.dropdown-item {
+    color: #ffffff;
+}
+.sidebar {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 15px;
+    border-right: 2px solid #dee2e6; /* Subtle border for separation */
+   
+    top: 0; /* Align to top */
+}
+
+.sidebar-title {
+    font-size: 1.25rem; /* Larger title */
+}
+
+.list-group-item {
+    border: none; /* Remove default border */
+}
+
+.list-group-item a {
+    text-decoration: none; /* Remove underline */
+    display: block; /* Full-width clickable area */
+    padding: 10px; /* Padding for better touch targets */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.list-group-item a:hover {
+    background-color: #e9ecef; /* Light gray on hover */
+}
+
+.list-unstyled {
+    padding-left: 0; /* Reset padding */
+}
+
+.list-unstyled a {
+    font-size: 0.9rem; /* Smaller font for submenu */
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between items */
+}
+
+.header-right a {
+    text-decoration: none;
+    color: #fff; /* Text color */
+    padding: 8px 12px; /* Spacing around links */
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.header-right a:hover {
+    background-color: #007bff; /* Background on hover */
+    color: #fff; /* Text color on hover */
+}
+
+.header-right .text-white {
+    color: #fff; /* Ensures icons remain white */
+}
+
+.header-right .fab {
+    font-size: 1.2em; /* Adjust icon size */
+}
+
+.header-right a:not(.text-white):hover {
+    color: #007bff; /* Different color on hover for text links */
+}
+

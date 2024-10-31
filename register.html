@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zambia Agriculture Research Institute - Registration</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.5.15.4.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <style>
+        /* Registration form container */
+        .registration-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-container h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #007bff;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .btn-register {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn-register:hover {
+            background-color: #0056b3;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Registration Form Container -->
+    <div class="container mt-5">
+        <div class="registration-container">
+            <h2>Create an Account</h2>
+            <form action="register.php" method="post">
+
+                <!-- Name Field -->
+                <div class="form-group mb-3">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group mb-3">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Phone Number Field -->
+                <div class="form-group mb-3">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group mb-3">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" required>
+                </div>
+
+                <!-- Register Button -->
+                <button type="submit" class="btn btn-register">Register</button>
+
+                <!-- Footer Links -->
+                <div class="form-footer mt-3">
+                    <p>Already have an account? <a href="login.html">Login here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript (Bootstrap and other dependencies) -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirm_password");
+
+    // Email Validation Regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Display an error message
+    function displayError(input, message) {
+        const formGroup = input.closest(".form-group");
+        let error = formGroup.querySelector(".error-message");
+
+        if (!error) {
+            error = document.createElement("small");
+            error.className = "error-message";
+            error.style.color = "red";
+            formGroup.appendChild(error);
+        }
+        
+        error.textContent = message;
+    }
+
+    // Clear error message
+    function clearError(input) {
+        const formGroup = input.closest(".form-group");
+        const error = formGroup.querySelector(".error-message");
+        if (error) {
+            error.remove();
+        }
+    }
+
+    // Check required fields
+    function checkRequired(input) {
+        if (input.value.trim() === "") {
+            displayError(input, `${input.previousElementSibling.textContent} is required.`);
+            return false;
+        } else {
+            clearError(input);
+            return true;
+        }
+    }
+
+    // Validate email format
+    function validateEmail(input) {
+        if (!emailRegex.test(input.value.trim())) {
+            displayError(input, "Please enter a valid email address.");
+            return false;
+        } else {
+            clearError(input);
+            return true;
+        }
+    }
+
+    // Check if passwords match
+    function checkPasswordsMatch(password, confirmPassword) {
+        if (password.value !== confirmPassword.value) {
+            displayError(confirmPassword, "Passwords do not match.");
+            return false;
+        } else {
+            clearError(confirmPassword);
+            return true;
+        }
+    }
+
+    // Event Listener for real-time validation on keyup
+    form.addEventListener("keyup", function(event) {
+        switch (event.target.id) {
+            case "name":
+            case "phone":
+                checkRequired(event.target);
+                break;
+            case "email":
+                validateEmail(event.target);
+                break;
+            case "confirm_password":
+                checkPasswordsMatch(passwordInput, confirmPasswordInput);
+                break;
+        }
+    });
+
+    // Form Submit Handler
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let isFormValid = true;
+
+        // Check each field
+        isFormValid &= checkRequired(nameInput);
+        isFormValid &= validateEmail(emailInput);
+        isFormValid &= checkRequired(phoneInput);
+        isFormValid &= checkRequired(passwordInput);
+        isFormValid &= checkPasswordsMatch(passwordInput, confirmPasswordInput);
+
+        // Submit form if valid
+        if (isFormValid) {
+            form.submit(); // Or use an AJAX call to handle form submission if required
+        }
+    });
+});
+
+    </script>
+</body>
+
+</html>

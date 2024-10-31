@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zambia Agriculture Research Institute - MIS</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/datepicker.min.css">
+    <link rel="stylesheet" href="css/font-awesome.5.15.4.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Theme colors */
+        :root {
+            --dark-orange: #b85c1e;
+            --dark-green: #2b7a0b;
+            --white: #ffffff;
+            --light-green: #cce5cc;
+        }
+
+        /* Header and Footer */
+        .bg-dark-orange {
+            background-color: var(--dark-orange) !important;
+        }
+
+        .bg-dark-green {
+            background-color: var(--dark-green) !important;
+        }
+
+        .text-dark-orange {
+            color: var(--dark-orange) !important;
+        }
+
+        .text-dark-green {
+            color: var(--dark-green) !important;
+        }
+
+        /* Customize Buttons */
+        .btn-primary {
+            background-color: var(--dark-orange);
+            border-color: var(--dark-orange);
+        }
+
+        .btn-primary:hover {
+            background-color: darken(var(--dark-orange), 10%);
+        }
+
+        /* Card and Section Colors */
+        .card {
+            border-color: var(--dark-green);
+        }
+
+        .card .card-title {
+            color: var(--dark-orange);
+        }
+
+        .bg-light-green {
+            background-color: var(--light-green);
+        }
+
+        /* Navbar */
+        .navbar-dark .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: var(--light-green);
+        }
+
+        .navbar-dark .navbar-nav .dropdown-menu {
+            background-color: var(--dark-orange);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-green);
+        }
+
+        .dropdown-item {
+            color: #ffffff;
+        }
+
+        /* Enhanced Card Styling */
+        .dashboard-overview .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-overview .card-body {
+            padding: 2rem;
+        }
+
+        .hover-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Icon Box Styling */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Sidebar Styling */
+        .sidebar-menu {
+            background-color: var(--light-green);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .sidebar-menu h5 {
+            color: var(--dark-orange);
+        }
+
+        .sidebar-menu a {
+            color: var(--dark-green);
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: var(--dark-orange);
+            color: var(--white);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="bg-dark-orange text-white py-1">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <span><i class="fas fa-phone-alt me-2"></i>+260 123 456 789</span>
+                <span class="ms-3"><i class="fas fa-envelope me-2"></i>info@zari.gov.zm</span>
+            </div>
+            <div>
+                <a href="#" class="text-white ms-2"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white ms-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white ms-2"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Middle Header -->
+    <header class="bg-light-green">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <img src="images/images.png" alt="ZARI Logo" class="img-fluid" style="height: 60px;">
+            </div>
+            <div class="site-title">
+                <h1 class="mb-0 text-dark-orange fw-bold">Zambia Agriculture Research Institute - MIS</h1>
+                <p class="mb-0 text-dark-green fw-bolder">Empowering Research through Innovation</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header with Mega Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+            
+                    <!-- Research Programs with Expanded Menu -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Research Programs</a>
+                        <div class="dropdown-menu p-4 border-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Agricultural Crops</h6>
+                                    <a class="dropdown-item text-white" href="#">Maize Research</a>
+                                    <a class="dropdown-item text-white" href="#">Cassava Projects</a>
+                                    <a class="dropdown-item text-white" href="#">Horticulture</a>
+                                    <a class="dropdown-item text-white" href="#">Fertilizer Trials</a>
+                                    <a class="dropdown-item text-white" href="#">Soil Health Monitoring</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Animal Studies</h6>
+                                    <a class="dropdown-item text-white" href="#">Livestock Studies</a>
+                                    <a class="dropdown-item text-white" href="#">Poultry Research</a>
+                                    <a class="dropdown-item text-white" href="#">Disease Control</a>
+                                    <a class="dropdown-item text-white" href="#">Feed and Nutrition Trials</a>
+                                    <a class="dropdown-item text-white" href="#">Animal Welfare</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            
+                    <!-- Expanded Publications Section -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Publications</a>
+                        <div class="dropdown-menu p-4 border-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Research Papers</h6>
+                                    <a class="dropdown-item text-white" href="#">Agronomy Research</a>
+                                    <a class="dropdown-item text-white" href="#">Soil Science Articles</a>
+                                    <a class="dropdown-item text-white" href="#">Plant Pathology Papers</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Reports and Journals</h6>
+                                    <a class="dropdown-item text-white" href="#">Annual Reports</a>
+                                    <a class="dropdown-item text-white" href="#">Sustainable Agriculture Journal</a>
+                                    <a class="dropdown-item text-white" href="#">Environmental Impact Studies</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            
+                    <!-- Projects with Additional Subsections -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Projects</a>
+                        <div class="dropdown-menu p-4 border-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Current Projects</h6>
+                                    <a class="dropdown-item text-white" href="#">Agroforestry Project</a>
+                                    <a class="dropdown-item text-white" href="#">Irrigation Development</a>
+                                    <a class="dropdown-item text-white" href="#">Climate Resilience Initiatives</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Past Projects</h6>
+                                    <a class="dropdown-item text-white" href="#">Food Security Studies</a>
+                                    <a class="dropdown-item text-white" href="#">Land Restoration Projects</a>
+                                    <a class="dropdown-item text-white" href="#">Research on Crop Varieties</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <section class="col-md-4 dashboard-overview">
+                <div class="sidebar-menu">
+                    <h5>Main Menu</h5>
+                    <a href="#">Dashboard Overview</a>
+                    <a href="#">Manage Users</a>
+                    <a href="#">Project Management</a>
+                    <a href="#">Reports & Analytics</a>
+                    <a href="#">Research Programs</a>
+                    <a href="#">Publications</a>
+                    <a href="#">Projects</a>
+                    <a href="#">Settings</a>
+                </div>
+            </section>
+
+            <!-- Main Content Area -->
+            <section class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-dark-green">Welcome to the Dashboard</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card hover-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Project Management</h5>
+                                        <p class="card-text">Manage your ongoing and upcoming projects with ease.</p>
+                                        <a href="#" class="btn btn-primary">View Projects</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card hover-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">User Management</h5>
+                                        <p class="card-text">Manage user roles, permissions, and access levels.</p>
+                                        <a href="#" class="btn btn-primary">Manage Users</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center text-white py-3">
+        <p>© 2024 Zambia Agriculture Research Institute. All rights reserved.</p>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/datepicker.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

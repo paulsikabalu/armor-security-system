@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zambia Agriculture Research Institute - MIS</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/datepicker.min.css">
+    <link rel="stylesheet" href="css/font-awesome.5.15.4.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <style>
+        .sidebar {
+    background-color: #e8fde9; /* Light green background */
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.accordion {
+    width: 100%;
+}
+
+.accordion-header {
+    background-color: var(--dark-orange); /* Slightly darker green for the header */
+    color: #fdfdfd; /* Darker green text */
+    padding: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px solid #b2d8b5;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #126612; /* Light green on hover */
+}
+
+.accordion-content {
+    display: block; /* Initially visible */
+    padding: 10px;
+    background-color: var(--light-green);; /* Lightest green for the content area */
+    border-bottom: 1px solid #b2d8b5;
+    color: #172c12;
+    font-size: 0.95em;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between items */
+}
+
+.header-right a {
+    text-decoration: none;
+    color: #fff; /* Text color */
+    padding: 8px 12px; /* Spacing around links */
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.header-right a:hover {
+    background-color: #007bff; /* Background on hover */
+    color: #fff; /* Text color on hover */
+}
+
+.header-right .text-white {
+    color: #fff; /* Ensures icons remain white */
+}
+
+.header-right .fab {
+    font-size: 1.2em; /* Adjust icon size */
+}
+
+.header-right a:not(.text-white):hover {
+    color: #007bff; /* Different color on hover for text links */
+}
+
+
+
+.accordion-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.accordion-content ul li {
+    margin-bottom: 8px;
+}
+
+.accordion-content a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 14px;
+}
+
+.accordion-content a:hover {
+    color: #0056b3; /* Darker link color on hover */
+    text-decoration: underline;
+}
+
+.UserInfo {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.UserInfo strong {
+    color: #333;
+}
+
+/* JavaScript trigger for accordion effect */
+.accordion-header.active + .accordion-content {
+    display: block;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="bg-dark-orange text-white py-1">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <span><i class="fas fa-phone-alt me-2"></i>+260 123 456 789</span>
+                <span class="ms-3"><i class="fas fa-envelope me-2"></i>info@zari.gov.zm</span>
+            </div>
+            <div class="header-right">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="staff.login.html">Staff Portal</a>
+                <a href="#" class="text-white ms-2"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white ms-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white ms-2"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Middle Header -->
+    <header class="bg-light-green">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <img src="images/images.png" alt="ZARI Logo" class="img-fluid" style="height: 60px;">
+            </div>
+            <div class="site-title">
+                <h1 class="mb-0 text-dark-orange fw-bold">Zambia Agriculture Research Institute - MIS</h1>
+                <p class="mb-0 text-dark-green fw-bolder">Empowering Research through Innovation</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header with Mega Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <!-- Research Programs with Expanded Menu -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Research Programs</a>
+                        <div class="dropdown-menu p-4 border-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Agricultural Crops</h6>
+                                    <a class="dropdown-item text-white" href="#">Maize Research</a>
+                                    <a class="dropdown-item text-white" href="#">Cassava Projects</a>
+                                    <a class="dropdown-item text-white" href="#">Horticulture</a>
+                                    <a class="dropdown-item text-white" href="#">Fertilizer Trials</a>
+                                    <a class="dropdown-item text-white" href="#">Soil Health Monitoring</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Animal Studies</h6>
+                                    <a class="dropdown-item text-white" href="#">Livestock Studies</a>
+                                    <a class="dropdown-item text-white" href="#">Poultry Research</a>
+                                    <a class="dropdown-item text-white" href="#">Disease Control</a>
+                                    <a class="dropdown-item text-white" href="#">Feed and Nutrition Trials</a>
+                                    <a class="dropdown-item text-white" href="#">Animal Welfare</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Expanded Publications Section -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Publications</a>
+                        <div class="dropdown-menu p-4 border-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Research Papers</h6>
+                                    <a class="dropdown-item text-white" href="#">Agronomy Research</a>
+                                    <a class="dropdown-item text-white" href="#">Soil Science Articles</a>
+                                    <a class="dropdown-item text-white" href="#">Plant Pathology Papers</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Reports and Journals</h6>
+                                    <a class="dropdown-item text-white" href="#">Annual Reports</a>
+                                    <a class="dropdown-item text-white" href="#">Sustainable Agriculture Journal</a>
+                                    <a class="dropdown-item text-white" href="#">Environmental Impact Studies</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Projects with Additional Subsections -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Projects</a>
+                        <div class="dropdown-menu p-4 border-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Ongoing Projects</h6>
+                                    <a class="dropdown-item text-white" href="#">Sustainable Crop Rotation</a>
+                                    <a class="dropdown-item text-white" href="#">Soil Enrichment Initiatives</a>
+                                    <a class="dropdown-item text-white" href="#">Irrigation Development</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Completed Projects</h6>
+                                    <a class="dropdown-item text-white" href="#">Disease-Resistant Varieties</a>
+                                    <a class="dropdown-item text-white" href="#">Greenhouse Innovations</a>
+                                    <a class="dropdown-item text-white" href="#">Agroforestry Integration</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- New Section for Data Analytics and MIS Tools -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Farmers Data Tools</a>
+                        <div class="dropdown-menu p-4 border-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Data Analytics</h6>
+                                    <a class="dropdown-item text-white" href="#">Data Visualization</a>
+                                    <a class="dropdown-item text-white" href="#">Real-Time Monitoring</a>
+                                    <a class="dropdown-item text-white" href="#">Predictive Analytics</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-white">Management Tools</h6>
+                                    <a class="dropdown-item text-white" href="#">Resource Allocation</a>
+                                    <a class="dropdown-item text-white" href="#">Financial Tracking</a>
+                                    <a class="dropdown-item text-white" href="#">Stakeholder Communication</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Contact Section -->
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <section class="col-md-3 sidebar">
+                <div class="accordion">
+                    <h5 class="accordion-header">Account</h5>
+                    <div class="accordion-content">
+                        <div class="UserInfo">
+                            Logged in as:<br>
+                            <strong>
+                                KELVIN ZULU 
+                                (Supplier Admin			) 
+                                - 
+                            </strong>
+                            Unlimited Eagle Innovations <br>
+                            
+                                Last login on : <br>
+                                28/10/2024 - 07:23:25
+            
+                        </div>
+                        <ul>
+            
+                            <li>
+                                <a href="https://eprocure.zppa.org.zm/epps/prepareEditAccount.do?id=271831&amp;selectedItem=prepareEditAccount.do%3Fid%3D271831">Edit Profile</a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://eprocure.zppa.org.zm/epps/home.do?selectedItem=home.do">Homepage</a>
+                            </li>
+                        
+                        <li>
+                             <a href="https://eprocure.zppa.org.zm/epps/authenticate/logout?selectedItem=authenticate/logout">Log Out</a>                    
+                        </li>
+                    </ul>
+                    </div>
+                    <h5 class="accordion-header">Project Management</h5>
+                    <div class="accordion-content">
+                        <a href="">List of my Projects</a>
+                    </div>
+                    <h5 class="accordion-header">Research</h5>
+                    <div class="accordion-content">
+                        <p>This is the content of section 3.</p>
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Main Content Area -->
+            <section class="col-md-9">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-dark-green">Welcome to the Dashboard</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card hover-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Project Management</h5>
+                                        <p class="card-text">Manage your ongoing and upcoming projects with ease.</p>
+                                        <a href="#" class="btn btn-primary">View Projects</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card hover-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">User Management</h5>
+                                        <p class="card-text">Manage user roles, permissions, and access levels.</p>
+                                        <a href="#" class="btn btn-primary">Manage Users</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- JS Dependencies -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    <script>
+       $(document).ready(function () {
+    // Toggle the accordion content on header click
+    $('.accordion-header').click(function () {
+        // Toggle the next content section
+        $(this).next('.accordion-content').slideToggle();
+    });
+});
+
+
+    </script>
+</body>
+
+</html>

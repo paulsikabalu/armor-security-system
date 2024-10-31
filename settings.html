@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Spy Agency Admin</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <style>
+        /* Layout Styling */
+        body {
+            background-color: #1e1e2d;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            background-color: #2c2c3e;
+            height: 100vh;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: #bbb;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #3a3a4f;
+            color: #fff;
+        }
+
+        .top-bar {
+            background-color: #1e1e2d;
+            color: #17a2b8;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar h5 {
+            margin: 0;
+            display: inline;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .page-header {
+            color: #17a2b8;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #17a2b8;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #138496;
+        }
+
+        .form-container {
+            margin: 20px;
+        }
+
+        .form-label {
+            color: #ddd;
+        }
+
+        .form-control {
+            background-color: #2a2a3a;
+            color: #fff;
+            border: 1px solid #17a2b8;
+        }
+
+        .form-control:focus {
+            background-color: #2a2a3a;
+            color: #fff;
+            border-color: #17a2b8;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: absolute;
+                height: auto; /* Adjust for mobile */
+                z-index: 1000;
+            }
+
+            .sidebar.show {
+                display: block;
+                height: 100vh;
+            }
+
+            .top-bar {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <h4 class="text-center">Spy Agency</h4>
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="agent.management.html" class="nav-link"><i class="fas fa-user-secret"></i> Agents</a>
+                <a href="missions.html" class="nav-link"><i class="fas fa-briefcase"></i> Missions</a>
+                <a href="report.html" class="nav-link"><i class="fas fa-chart-line"></i> Reports</a>
+                <a href="settings.html" class="nav-link active text-warning"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#logout" class="nav-link text-warning"><i class="fas fa-arrow-left"></i> Back to Admin</a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10">
+                <!-- Top Bar -->
+                <div class="top-bar d-flex justify-content-between">
+                    <h5>Settings</h5>
+                    <span>Logged in as Admin</span>
+                </div>
+
+                <!-- Page Header and Controls -->
+                <div class="container form-container">
+                    <h2 class="page-header">Admin Settings</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="siteName" class="form-label">Site Name</label>
+                            <input type="text" class="form-control" id="siteName" placeholder="Enter site name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="adminEmail" class="form-label">Admin Email</label>
+                            <input type="email" class="form-control" id="adminEmail" placeholder="Enter admin email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Change Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="New password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0.min.js"></script>
+</body>
+
+</html>

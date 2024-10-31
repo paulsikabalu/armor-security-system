@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zambia Agriculture Research Institute MIS</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="js/daterangepicker.css" />
+    <link rel="stylesheet" href="css/customStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="bars">
+        <nav class="navbar navbar-expand-lg top-bar">
+            <div class="container d-flex justify-content-between">
+                <div class="contact-info">
+                    <span>+260 123 456 789 | info@zari.gov.zm</span>
+                </div>
+                <div class="user-links">
+                    <a href="#" class="top-link">Login</a>
+                    <a href="#" class="top-link">Register</a>
+                    <a href="login.farmer.html" class="top-link">Farmers Portal</a>
+                    <a href="#" class="top-link">Staff Portal</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Middle Bar (Logo and Tagline) -->
+        <div class="container-fluid d-flex flex-column flex-md-row align-items-center middle-bar">
+            <img src="images/images.png" alt="ZARI Logo" class="logo">
+            <div class="news-carousel text-container">
+                <div class="carousel-content">
+                    <div class="news-item">Mochipapa Research Institute - MIS</div>
+                    <div class="news-item">Empowering Research through Innovation</div>
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="#" class="quick-link">About</a>
+                <a href="#" class="quick-link">FAQ</a>
+                <a href="#" class="quick-link">User Manual</a>
+                <a href="#" class="quick-link">Contact Us</a>
+            </div>
+
+        </div>
+
+
+
+        <nav class="navbar navbar-expand-lg bottom-bar">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a href="#" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item dropdown mega-dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="researchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Research Programs <i class="fas fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu mega-menu" aria-labelledby="researchDropdown">
+                                <div class="container">
+                                    <div class="row">
+                                        <!-- Column 1 -->
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Agricultural Research</h6>
+                                            <a class="dropdown-item" href="#">Crop Research</a>
+                                            <a class="dropdown-item" href="#">Soil Science</a>
+                                            <a class="dropdown-item" href="#">Pest Management</a>
+                                        </div>
+                                        <!-- Column 2 -->
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Livestock Research</h6>
+                                            <a class="dropdown-item" href="#">Animal Health</a>
+                                            <a class="dropdown-item" href="#">Dairy Research</a>
+                                            <a class="dropdown-item" href="#">Poultry Research</a>
+                                        </div>
+                                        <!-- Column 3 -->
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Environmental Studies</h6>
+                                            <a class="dropdown-item" href="#">Climate Adaptation</a>
+                                            <a class="dropdown-item" href="#">Water Resources</a>
+                                            <a class="dropdown-item" href="#">Biodiversity</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown mega-dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="publicationsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Publications <i class="fas fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu mega-menu" aria-labelledby="publicationsDropdown">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Journal Articles</h6>
+                                            <a class="dropdown-item" href="#">Research Articles</a>
+                                            <a class="dropdown-item" href="#">Review Articles</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Reports</h6>
+                                            <a class="dropdown-item" href="#">Annual Reports</a>
+                                            <a class="dropdown-item" href="#">Research Findings</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Other Publications</h6>
+                                            <a class="dropdown-item" href="#">Brochures</a>
+                                            <a class="dropdown-item" href="#">Newsletters</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown mega-dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="projectsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Projects <i class="fas fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu mega-menu" aria-labelledby="projectsDropdown">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Current Projects</h6>
+                                            <a class="dropdown-item" href="#">Project A</a>
+                                            <a class="dropdown-item" href="#">Project B</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Completed Projects</h6>
+                                            <a class="dropdown-item" href="#">Project X</a>
+                                            <a class="dropdown-item" href="#">Project Y</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Future Projects</h6>
+                                            <a class="dropdown-item" href="#">Project 2024</a>
+                                            <a class="dropdown-item" href="#">Project 2025</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown mega-dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="farmersDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Farmers Data Tools <i class="fas fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu mega-menu" aria-labelledby="farmersDropdown">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Data Collection Tools</h6>
+                                            <a class="dropdown-item" href="#">Survey Tools</a>
+                                            <a class="dropdown-item" href="#">Mobile Applications</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Analysis Tools</h6>
+                                            <a class="dropdown-item" href="#">Statistical Analysis</a>
+                                            <a class="dropdown-item" href="#">GIS Tools</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6 class="dropdown-header">Resources</h6>
+                                            <a class="dropdown-item" href="#">Guidelines</a>
+                                            <a class="dropdown-item" href="#">Tutorials</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown mega-dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="downloadsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Downloads<i class="fas fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu mega-menu" aria-labelledby="downloadsDropdown">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a class="dropdown-item" href="#">Forms</a>
+                                            <a class="dropdown-item" href="#">Survey Forms</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <nav class="col-md-4 col-lg-3 d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item item-style">
+                            <a class="nav-link active" href="#">
+                                <i class="fas fa-tachometer-alt"></i> <!-- Icon for Dashboard -->
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item item-style">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-project-diagram"></i> <!-- Icon for Research Projects -->
+                                Research Projects
+                            </a>
+                        </li>
+                        <li class="nav-item item-style">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-file-alt"></i> <!-- Icon for Publications -->
+                                Publications
+                            </a>
+                        </li>
+                        <li class="nav-item item-style">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-database"></i> <!-- Icon for Data Collection -->
+                                Data Collection
+                            </a>
+                        </li>
+                        <li class="nav-item item-style">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-users"></i> <!-- Icon for Farmers Support -->
+                                Farmers Support
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div id="slider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/brahman.jpg" class="d-block w-100 carousel-image" alt="Brahman Cattle">
+                                <div class="carousel-caption text-start animated-caption">
+                                    <h5 class="text-orange slide-in">Brahman Cattle</h5>
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/boran.jpg" class="d-block w-100 carousel-image" alt="Boran Cattle">
+                                <div class="carousel-caption text-start animated-caption">
+                                    <h5 class="text-orange slide-in">Boran Cattle</h5>
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/tonga.jpg" class="d-block w-100 carousel-image" alt="Tonga Cattle">
+                                <div class="carousel-caption text-start animated-caption">
+                                    <h5 class="text-orange slide-in">Tonga Cattle</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#slider"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#slider"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Main Content -->
+            <main class="col-md-8 ms-sm-auto col-lg-9 px-4">
+                <!-- Image Slider -->
+                <h2 class="mb-4">Current Research Programs</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <a href="#"><img src="images/crop.research.jpg" class="card-img-top" alt="Research Program 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">Crop Research Program</h5>
+                                <p class="card-text">Investigating new methods for improving crop yields and
+                                    sustainability.</p>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/boran.jpg" class="card-img-top" alt="Research Program 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Livestock Health Program</h5>
+                                <p class="card-text">Focusing on animal health, nutrition, and disease management.</p>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/climate.png" class="card-img-top" alt="Research Program 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Climate Change Adaptation</h5>
+                                <p class="card-text">Researching strategies to adapt agricultural practices to climate
+                                    change.</p>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="mt-5 mb-4">Objectives</h2>
+                <ul>
+                    <li>Enhance agricultural productivity.</li>
+                    <li>Improve food security and nutrition.</li>
+                    <li>Promote sustainable practices in farming.</li>
+                </ul>
+
+                <h2 class="mt-5 mb-4">Methodologies</h2>
+                <p>Our research employs a variety of methodologies including:</p>
+                <ul>
+                    <li>Field Trials</li>
+                    <li>Laboratory Experiments</li>
+                    <li>Data Analysis and Modeling</li>
+                    <li>Community Engagement</li>
+                </ul>
+
+                <h2 class="mt-5 mb-4">Get Involved</h2>
+                <p>If you are interested in collaborating or learning more about our research programs, <a
+                        href="contact.html">contact us</a>.
+                </p>
+
+            </main>
+        </div>
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/datepicker.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.min.js"></script>
+
+
+</body>
+
+</html>

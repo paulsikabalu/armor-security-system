@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Agency - Secure Profile</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.5.15.4.min.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/spy.png">
+    <link rel="stylesheet" href="css/armor.css">
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="bg-dark text-white">
+        <div class="container d-flex justify-content-between py-2">
+            <div class="header-right">
+                <a href="staff.login.html">Agent Login</a>
+                <a href="spy.register.html">Register Access</a>
+                <a href="staff.login.html">Staff Portal</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Middle Header -->
+    <header class="bg-dark">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <div class="logo">
+                <i class="fa fa-user-secret" style="font-size: 100px;" aria-hidden="true"></i>
+            </div>
+
+            <div class="site-title">
+                <h1 class="text-neon fw-bold">Armar Guard Security Access Portal</h1>
+                <p class="text-light text-lights">Top-Secret Intelligence - Authorized Personnel Only</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <!-- Navbar Brand with Company Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/operation_alpha.jpg" alt="Spy Agency" style="width: 30px; margin-right: 8px;">
+                Armar Guard
+            </a>
+
+            <!-- Company  Dropdown with Hover Effect -->
+            <div class="dropdown ms-3 company-">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" title="Company ">
+                    <i class="fas fa-gear"></i>
+                </a>
+                <ul class="dropdown-menu bg-dark border-0 shadow">
+                    <li><a class="dropdown-item text-light" href="#">Equipment Inventory</a></li>
+                    <li><a class="dropdown-item text-light" href="#">Resource Management</a></li>
+                    <li><a class="dropdown-item text-light" href="#">Client Database</a></li>
+                    <li><a class="dropdown-item text-light" href="#">Training Modules</a></li>
+                </ul>
+            </div>
+
+            <!-- Toggle Button for Mobile View -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="spy.portal.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Operations</a>
+                        <ul class="dropdown-menu bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">Field Ops</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Recon</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Logistics</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Intel Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Profile Icon and Logout Link -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="images/spy4.png" id="spylogo" alt="Profile" style="width: 25px;">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end bg-dark border-0 shadow">
+                            <li><a class="dropdown-item text-light" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item text-light" href="#">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-light">
+                            </li>
+                            <li><a class="dropdown-item text-light" href="logout.php">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <section class="col-md-3 sidebar">
+
+                <div id="accordion-container">
+                    <!-- This will be dynamically populated by JS -->
+
+                </div>
+                <h5 class="accordion-header">Missions</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Current Operations</a></li>
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="#">Statistics</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Resources</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="#">Field Reports</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Company </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Equipment Inventory</a></li>
+                        <li><a href="#">Resource Management</a></li>
+                        <li><a href="#">Client Database</a></li>
+                        <li><a href="#">Training Modules</a></li>
+                    </ul>
+                </div>
+               
+
+                <!-- Mission History  -->
+                <h5 class="accordion-header">Mission History </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Recent Missions</a></li>
+                        <li><a href="#">Mission Logs</a></li>
+                        <li><a href="#">Mission Assignments</a></li>
+                    </ul>
+                </div>
+
+                <!-- Team Management  -->
+                <h5 class="accordion-header">Team Management </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Team Assignments</a></li>
+                        <li><a href="#">Team Communication</a></li>
+                        <li><a href="#">Field Agent Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Security Settings  -->
+                <h5 class="accordion-header">Security Settings </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Access Control</a></li>
+                        <li><a href="#">Data Encryption Settings</a></li>
+                        <li><a href="#">Session Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- Surveillance & Intelligence  -->
+                <h5 class="accordion-header">Surveillance & Intelligence </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Live Feed Access</a></li>
+                        <li><a href="#">Reports & Analysis</a></li>
+                        <li><a href="#">Intel Database</a></li>
+                    </ul>
+                </div>
+
+                <!-- Training & Development  -->
+                <h5 class="accordion-header">Training & Development </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Training Modules</a></li>
+                        <li><a href="#">Performance Reviews</a></li>
+                        <li><a href="#">Upcoming Training</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resource Allocation  -->
+                <h5 class="accordion-header">Resource Allocation </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Equipment Inventory</a></li>
+                        <li><a href="#">Vehicle Tracking</a></li>
+                        <li><a href="#">Resource Requests</a></li>
+                    </ul>
+                </div>
+
+                <!-- Incident & Emergency  -->
+                <h5 class="accordion-header">Incident & Emergency </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Incident Reporting</a></li>
+                        <li><a href="#">Emergency Protocols</a></li>
+                        <li><a href="#">Crisis Communication</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal & Compliance  -->
+                <h5 class="accordion-header">Legal & Compliance </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Case Files</a></li>
+                        <li><a href="#">Surveillance Warrants</a></li>
+                        <li><a href="#">Compliance Updates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Communication & Collaboration  -->
+                <h5 class="accordion-header">Communication & Collaboration </h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Secure Messaging</a></li>
+                        <li><a href="#">Collaborative Workspaces</a></li>
+                        <li><a href="#">Real-Time Communication</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Main Section -->
+            <section class="col-md-9">
+                <!-- Main content goes here -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="" id="profilePicturePreview" style="width: 150px;" alt="">
+                            </div>
+                            <div class="col-md-8">
+                                <h5>Agent: <h6 id="profile"></h6>
+                                </h5>
+                                <h5>Missions: <h6>5</h6>
+                                </h5>
+                            </div>
+                        </div>
+
+                        <form action="controller/update.agent.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="agentId">Agent ID</label>
+                                <input type="text" class="form-control" id="agentId" name="agent_id" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="agentName">Agent Name</label>
+                                <input type="text" class="form-control" id="agentName" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="agentEmail">Email</label>
+                                <input type="email" class="form-control" id="agentEmail" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="agentPassword">Password</label>
+                                <input type="password" class="form-control" id="agentPassword" name="password"
+                                    placeholder="Enter a new password">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profilePictureUrl">Profile Picture</label>
+                                <input type="file" class="form-control" id="profilePictureUrl" name="profile_picture">
+                            </div>
+
+                            <div class="form-group text-center mt-3">
+                                <button type="submit" class="btn btn-success btn-block">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="accordion-header">Mission Details</h5>
+                        <div class="accordion-content-mission">
+                            <div class="mission-form">
+
+                                <form action="/submit_mission" method="post">
+                                    <!-- Mission ID -->
+                                    <div class="container">
+                                        <label for="mission_id">Mission ID</label>
+                                        <input type="text" id="mission_id" name="mission_id" required
+                                            placeholder="Enter Mission ID">
+
+                                        <label for="type">Type</label>
+                                        <select id="type" name="type" required>
+                                            <option value="">Select Type</option>
+                                            <option value="Infiltration">Infiltration</option>
+                                            <option value="Reconnaissance">Reconnaissance</option>
+                                            <option value="Assassination">Assassination</option>
+                                            <option value="Extraction">Extraction</option>
+                                        </select>
+                                        <label for="status">Status</label>
+                                        <select id="status" name="status" required>
+                                            <option value="active">Active</option>
+                                            <option value="completed">Completed</option>
+                                            <option value="failed">Failed</option>
+                                        </select>
+
+                                        <!-- Location -->
+                                        <label for="location">Location</label>
+                                        <input type="text" id="location" name="location" required
+                                            placeholder="Enter Location">
+
+                                        <!-- Start Date -->
+                                        <label for="start_date">Start Date</label>
+                                        <input type="datetime-local" id="start_date" name="start_date" required>
+
+                                        <label for="end_date">End Date</label>
+                                        <input type="datetime-local" id="end_date" name="end_date" required>
+                                        <!-- Submit Button -->
+                                        <input type="submit" value="Submit Mission">
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        <h5 class="accordion-header">Skills</h5>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="#">undercover</a></li>
+                                <li><a href="#">cybersecurity</a></li>
+                                <li><a href="#">surveillance</a></li>
+                                <li><a href="#">combat</a></li>
+                            </ul>
+                        </div>
+                        <h5 class="accordion-header">Mission Performance</h5>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="#">Mission Completed</a> <i class="badge">5</i></li>
+                                <li><a href="#">Mission Failed</a> <i class="badge">0</i></li>
+                                <li><a href="#">Success rate</a><i class="badge">85%</i></li>
+                            </ul>
+                        </div>
+
+                        <h5 class="accordion-header">Training</h5>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="#">Advanced Surveillance</a> </li>
+                                <li><a href="#">Close Combat</a></li>
+                                <li><a href="#">Completed on </a><i class="badge">2024-10-25</i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </section>
+
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Toggle the accordion content on header click
+            $('.accordion-header').click(function () {
+                $(this).next('.accordion-content').slideToggle();
+            });
+            $('.accordion-header').click(function () {
+                $(this).next('.accordion-content-mission').slideToggle();
+            });
+
+
+            // JavaScript to check login status
+            fetch('controller/is_login.php')
+                .then(response => {
+                    // Check if response is successful (status code 200)
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const accordionContainer = document.getElementById('accordion-container');
+
+                    if (data.is_logged_in) {
+                        $('#agentId').val(data.agent_id);
+                        $('#agentName').val(data.name);
+                        $('#agentEmail').val(data.email);
+                        $('#profile').html(data.name);
+                        // If you want to display the user's profile picture preview
+                        if (data.profile_picture) {
+                            $('#profilePicturePreview').attr('src', 'controller/' + data.profile_picture);
+                            $('#spylogo').attr('src', 'controller/' + data.profile_picture);
+                        }
+                        // Display Agent Profile when logged in
+                        accordionContainer.innerHTML = `
+                <div class="accordion-item">
+                    <h5 class="accordion-header">Agent Profile</h5>
+                    <div class="accordion-body">
+                        <div class="profile-container">
+                            <!-- Profile Picture -->
+                            
+                            <img src="controller/${data.profile_picture}" alt="Profile Picture" class="profile-picture">
+                            <p>${data.message}<br>Last login: <strong>${data.last_login}</strong></p>
+                        </div>
+                        <ul>
+                            <li><a href="profile.html">Edit Profile</a></li>
+                            <li><a href="#">Change Password</a></li>
+                        <li><a href="#">Security Alerts</a></li>
+                            <li><a href="logout.php">Log Out</a></li> <!-- Assuming logout.php handles logout -->
+                        </ul>
+                    </div>
+                </div>
+            `;
+                    } else {
+                        // Display Login and Registration options when not logged in
+                        accordionContainer.innerHTML = `
+                <div class="accordion-item">
+                    <h5 class="accordion-header">Login</h5>
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="staff.login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="support.html">Support</a></li>
+                            <li><a href="secure-message.html">Secure Message</a></li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching login status:', error);
+                    alert('There was an issue fetching your login status. Please try again later.');
+                });
+
+
+        });
+    </script>
+</body>
+
+</html>

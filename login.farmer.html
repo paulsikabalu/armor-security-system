@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Portal Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* Base Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #5a9a57, #ffa500);
+            color: #333;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Wave Animation */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('images/wave.svg') repeat-x;
+            animation: wave 4s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes wave {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Login Container */
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Login Box Styling */
+        .login-box {
+            max-width: 700px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Logo Column Styling */
+        .logo {
+            width: 80%;
+            margin-bottom: 1rem;
+        }
+
+        .bg-light {
+            background-color: #f9f9f9 !important;
+        }
+
+        h2, h3 {
+            font-weight: 600;
+            color: #3c763d;
+        }
+
+        /* Form Styling */
+        .form-control {
+            border-radius: 5px;
+            padding: 0.8rem;
+            font-size: 1rem;
+        }
+
+        label {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background-color: #ffa500;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e69500;
+        }
+
+        /* Link Styling */
+        a {
+            color: #5a9a57;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #4f8f4b;
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .login-box {
+                flex-direction: column;
+            }
+
+            .logo {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-box shadow">
+            <div class="row g-0">
+                <!-- Left Column: Logo Section -->
+                <div class="col-md-5 d-flex flex-column align-items-center justify-content-center p-4 bg-light">
+                    <img src="images/crop.research.jpg" alt="Farmers Portal Logo" class="logo">
+                    <h2 class="text-center">Mochipapa Research Farmers Portal</h2>
+                </div>
+
+                <!-- Right Column: Login Form Section -->
+                <div class="col-md-7 p-4">
+                    <h3 class="text-center mb-4">Log In to Your Account</h3>
+                    <form id="loginForm" action="process_login.php" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Log In</button>
+                        <div class="text-center mt-3">
+                            <a href="#" class="text-decoration-none">Forgot password?</a> |
+                            <a href="register.html" class="text-decoration-none">Sign up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wave Animation -->
+    <div class="wave"></div>
+
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

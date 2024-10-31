@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Agency - Secure Access Portal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.5.15.4.min.css">
+    <link rel="stylesheet" href="css/custom2.css">
+    <link rel="stylesheet" href="css/security.css">
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="bg-dark text-white">
+        <div class="container d-flex justify-content-between py-2">
+            <div class="header-right">
+                <a href="staff.login.html">Agent Login</a>
+                <a href="register.html">Register Access</a>
+                <a href="staff.login.html">Staff Portal</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Middle Header -->
+    <header class="bg-dark">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <div class="logo">
+                <img src="images/spy.png" alt="Spy Agency Logo">
+            </div>
+            <div class="site-title">
+                <h1 class="text-neon fw-bold">Armar Guard Security Access Portal</h1>
+                <p class="text-light text-lights">Top-Secret Intelligence - Authorized Personnel Only</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Operations</a>
+                        <div class="dropdown-menu bg-dark border-0 shadow">
+                            <a class="dropdown-item text-light" href="#">Field Ops</a>
+                            <a class="dropdown-item text-light" href="#">Recon</a>
+                            <a class="dropdown-item text-light" href="#">Logistics</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Intel Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Menu -->
+            <section class="col-md-3 sidebar">
+                <h5 class="accordion-header">Agent Profile</h5>
+                <div class="accordion-content">
+                    <p>Logged in as Agent Zulu<br>Last login: <strong>28/10/2024 - 07:23</strong></p>
+                    <ul>
+                        <li><a href="#">Edit Profile</a></li>
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Missions</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Current Operations</a></li>
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="#">Statistics</a></li>
+                    </ul>
+                </div>
+                <h5 class="accordion-header">Resources</h5>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="#">Field Reports</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Main Section -->
+            <section class="col-md-9">
+                <h1>Statistics Overview</h1>
+
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <canvas id="missionsChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="successRateChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="agentsDistributionChart"></canvas>
+                    </div>
+                </div>
+
+                <h1>Agency Statistics</h1>
+
+                <!-- Key Metrics Section -->
+                <div class="metrics-container">
+                    <div class="metric-card">
+                        <h2>Mission Success Rate</h2>
+                        <p>85%</p>
+                    </div>
+                    <div class="metric-card">
+                        <h2>Active Agents</h2>
+                        <p>120</p>
+                    </div>
+                    <div class="metric-card">
+                        <h2>Missions in Progress</h2>
+                        <p>10</p>
+                    </div>
+                    <div class="metric-card">
+                        <h2>Avg. Mission Duration</h2>
+                        <p>3 days</p>
+                    </div>
+                </div>
+
+                
+                <!-- Recent Activity Log Section -->
+                <div class="activity-log">
+                    <h2>Recent Activity</h2>
+                    <ul>
+                        <li>Agent A completed Operation Bravo - <strong>28/10/2024</strong></li>
+                        <li>Agent B started Mission Charlie - <strong>27/10/2024</strong></li>
+                        <li>Mission Delta experienced a delay - <strong>26/10/2024</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Agent Performance Summary Section -->
+                <div class="agent-performance">
+                    <h2>Agent Performance Summary</h2>
+                    <ul>
+                        <li>Agent A: 10 Missions, 90% Success Rate</li>
+                        <li>Agent B: 8 Missions, 75% Success Rate</li>
+                        <li>Agent C: 12 Missions, 85% Success Rate</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/FontAwesomeFree6.6.0 .min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Toggle the accordion content on header click
+            $('.accordion-header').click(function () {
+                // Toggle the next content section
+                $(this).next('.accordion-content').slideToggle();
+            });
+        });
+    </script>
+
+    <script>
+        // Missions Bar Chart
+        const ctx = document.getElementById('missionsChart').getContext('2d');
+        const missionsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Missions Completed',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Success Rate Line Chart
+        const successRateCtx = document.getElementById('successRateChart').getContext('2d');
+        const successRateChart = new Chart(successRateCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Success Rate (%)',
+                    data: [85, 90, 78, 88, 92, 80, 85],
+                    backgroundColor: 'rgba(52, 152, 219, 0.3)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // Agents Distribution Pie Chart
+        const agentsDistributionCtx = document.getElementById('agentsDistributionChart').getContext('2d');
+        const agentsDistributionChart = new Chart(agentsDistributionCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Field Agents', 'Analysts', 'Technicians', 'Support Staff'],
+                datasets: [{
+                    label: 'Agents Distribution',
+                    data: [35, 20, 25, 20],
+                    backgroundColor: [
+                        'rgba(241, 196, 15, 0.7)',
+                        'rgba(231, 76, 60, 0.7)',
+                        'rgba(155, 89, 182, 0.7)',
+                        'rgba(52, 73, 94, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(241, 196, 15, 1)',
+                        'rgba(231, 76, 60, 1)',
+                        'rgba(155, 89, 182, 1)',
+                        'rgba(52, 73, 94, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+
+        
+    </script>
+</body>
+
+</html>

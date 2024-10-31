@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Registration - Secure Access Portal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0f0f0f;
+            color: #d0d0d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Registration Container */
+        .register-container {
+            background-color: #1c1c1c;
+            padding: 2rem;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Overlay */
+        .overlay {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: rgba(0, 255, 0, 0.05);
+            transform: rotate(15deg);
+            animation: scan 4s infinite;
+        }
+
+        /* Overlay Animation */
+        @keyframes scan {
+            0% { left: -100%; }
+            50% { left: 0; }
+            100% { left: 100%; }
+        }
+
+        /* Registration Heading */
+        .register-container h2 {
+            color: #00ff00;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Controls */
+        .form-control {
+            background-color: #eafcf6;
+            border: none;
+            color: #000000;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* Submit Button */
+        .btn-register {
+            background-color: #00ff00;
+            color: #0f0f0f;
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-register:hover {
+            background-color: #00cc00;
+        }
+
+        /* Subtle Footer Links */
+        .footer-links {
+            margin-top: 1.5rem;
+            font-size: 0.85em;
+        }
+
+        .footer-links a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <!-- Overlay for the scanning effect -->
+        
+
+        <h2>Agent Registration</h2>
+        <p>Create your secure access credentials.</p>
+        <form action="controller/register_agent.php" method="POST" enctype="multipart/form-data">
+            <input type="text" id="agent_id" name="agent_id" class="form-control" placeholder="Agent ID" required>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
+
+            <input type="file" id="profile_picture" name="profile_picture" class="form-control" accept="image/*"><br>
+
+            <button type="submit" class="btn-register">Register Agent</button>
+        </form>
+        <div class="footer-links">
+            <a href="staff.login.html">Already have access? Login</a>
+        </div>
+    </div>
+
+</body>
+</html>
